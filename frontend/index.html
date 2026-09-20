@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Laboratory Enterprise Management</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Laboratory Enterprise Software Management</h1>
+
+    <p>
+        Manage laboratory instruments and experiments
+    </p>
+</header>
+
+<main>
+
+    <section>
+        <h2>Laboratory Instruments</h2>
+
+        <button onclick="loadInstruments()">
+            Load Instruments
+        </button>
+
+        <div id="instrument-list"></div>
+    </section>
+
+
+    <section>
+        <h2>Experiments</h2>
+
+        <button onclick="loadExperiments()">
+            Load Experiments
+        </button>
+
+        <div id="experiment-list"></div>
+    </section>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
