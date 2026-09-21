@@ -2,6 +2,8 @@ package com.lab.experimentservice.controller;
 
 import com.lab.experimentservice.model.Experiment;
 
+import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
