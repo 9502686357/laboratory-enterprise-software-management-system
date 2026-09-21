@@ -14,8 +14,8 @@ FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-COPY --from=build /app/target/experiment-service-1.0.0.jar app.jar
+COPY --from=build /app/target/instrument-service-1.0.0.jar app.jar
 
-EXPOSE 8082
+EXPOSE 8081
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
