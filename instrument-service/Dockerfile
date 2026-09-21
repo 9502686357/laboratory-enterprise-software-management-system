@@ -1,22 +1,21 @@
-# Use Java 17 runtime
-FROM eclipse-temurin:17-jdk
+# Build stage
+FROM maven:3.9-eclipse-temurin-17 AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy Maven project files
 COPY pom.xml .
-
-# Copy source code
 COPY src ./src
 
-# Install Maven
-RUN apt-get update && \
-    apt-get install -y maven && \
-    mvn clean package -DskipTests
+RUN mvn clean package -DskipTests
 
-# Expose Instrument Service port
-EXPOSE 8081
 
-# Start the Spring Boot application
-CMD ["java", "-jar", "target/instrument-service-1.0.0.jar"]
+# Runtime stage
+FROM eclipse-temurin:17-jre
+
+WORKDIR /app
+
+COPY --from=build /app/target/experiment-service-1.0.0.jar app.jar
+
+EXPOSE 8082
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
