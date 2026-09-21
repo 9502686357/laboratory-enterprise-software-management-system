@@ -1,0 +1,29 @@
+name: Docker Build Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  docker-build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Instrument Service image
+        run: docker build ./instrument-service
+
+      - name: Build Experiment Service image
+        run: docker build ./experiment-service
+
+      - name: Build Frontend image
+        run: docker build ./frontend
