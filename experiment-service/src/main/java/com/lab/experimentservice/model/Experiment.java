@@ -1,69 +1,55 @@
-package com.lab.experimentservice.model;
+package com.lab.experimentservice.controller;
 
-public class Experiment {
+import com.lab.experimentservice.model.Experiment;
 
-    private Long id;
+import jakarta.validation.Valid;
 
-    private String name;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
-    private String description;
+import org.springframework.web.bind.annotation.*;
 
-    private String instrumentName;
+import java.util.ArrayList;
+import java.util.List;
 
-    private String status;
+@RestController
+@CrossOrigin(origins = "*")
+@RequestMapping("/api/experiments")
+public class ExperimentController {
 
-    public Experiment() {
+    private final List<Experiment> experiments = new ArrayList<>();
+
+    @GetMapping
+    public ResponseEntity<List<Experiment>> getAllExperiments() {
+        return ResponseEntity.ok(experiments);
     }
 
-    public Experiment(
-            String name,
-            String description,
-            String instrumentName,
-            String status
-    ) {
-        this.name = name;
-        this.description = description;
-        this.instrumentName = instrumentName;
-        this.status = status;
+    @PostMapping
+    public ResponseEntity<Experiment> createExperiment(
+            @Valid @RequestBody Experiment experiment) {
+
+        experiment.setId(
+                (long) (experiments.size() + 1)
+        );
+
+        experiments.add(experiment);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(experiment);
     }
 
-    public Long getId() {
-        return id;
-    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Experiment> getExperimentById(
+            @PathVariable Long id) {
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getInstrumentName() {
-        return instrumentName;
-    }
-
-    public void setInstrumentName(String instrumentName) {
-        this.instrumentName = instrumentName;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+        return experiments.stream()
+                .filter(experiment ->
+                        experiment.getId().equals(id))
+                .findFirst()
+                .map(ResponseEntity::ok)
+                .orElse(
+                        ResponseEntity.notFound().build()
+                );
     }
 }
