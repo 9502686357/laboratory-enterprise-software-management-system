@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+
+  instrument-service:
+    build:
+      context: ./instrument-service
+    container_name: instrument-service
+    ports:
+      - "8081:8081"
+
+  experiment-service:
+    build:
+      context: ./experiment-service
+    container_name: experiment-service
+    ports:
+      - "8082:8082"
