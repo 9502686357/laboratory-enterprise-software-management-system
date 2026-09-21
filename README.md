@@ -1,77 +1,32 @@
 # Laboratory & Enterprise Software Management System
 
-A cloud-ready laboratory management application built using Java,
-Spring Boot microservices, REST APIs, Docker, automated testing,
-and a JavaScript frontend.
+![Java](https://img.shields.io/badge/Java-17-orange?logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-Microservices-brightgreen?logo=springboot)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker)
+![Maven](https://img.shields.io/badge/Maven-Build-red?logo=apachemaven)
+![JUnit](https://img.shields.io/badge/Testing-JUnit-green?logo=junit5)
+![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-black?logo=githubactions)
 
-## Project Overview
+A Java-based laboratory management platform built with Spring Boot microservices, RESTful APIs, Docker, automated testing, and a browser-based frontend.
 
-This project demonstrates a microservices-based laboratory software
-system for managing laboratory instruments and experiments.
+---
 
-The system contains:
+## 🚀 Project Highlights
 
-- Instrument Management Microservice
-- Experiment Management Microservice
-- Laboratory Data Processing Service
-- JavaScript Frontend
-- Docker containerization
-- Docker Compose orchestration
+- Java 17 backend
+- Spring Boot microservices architecture
 - RESTful APIs
-- Automated testing
+- Laboratory instrument management
+- Experiment management
+- H2 database with Spring Data JPA
+- Instrument measurement data processing
+- Responsive web frontend
+- Docker and Docker Compose
+- Multi-stage Docker builds
+- JUnit, Mockito, and MockMvc testing
+- GitHub Actions continuous integration
+- Docker build validation
+- Technical and architecture documentation
+- Cloud-ready architecture
 
-## Technology Stack
-
-### Backend
-
-- Java 17
-- Spring Boot
-- Spring Data JPA
-- REST APIs
-- Maven
-- H2 Database
-
-### Testing
-
-- JUnit 5
-- Mockito
-- Spring MockMvc
-
-### Frontend
-
-- HTML5
-- CSS3
-- JavaScript
-
-### DevOps
-
-- Docker
-- Docker Compose
-- Nginx
-
-## Project Structure
-
-```text
-laboratory-enterprise-software-management-system/
-│
-├── instrument-service/
-│   ├── Dockerfile
-│   ├── .dockerignore
-│   ├── pom.xml
-│   └── src/
-│
-├── experiment-service/
-│   ├── Dockerfile
-│   ├── .dockerignore
-│   ├── pom.xml
-│   └── src/
-│
-├── frontend/
-│   ├── Dockerfile
-│   ├── .dockerignore
-│   ├── index.html
-│   ├── app.js
-│   └── style.css
-│
-├── docker-compose.yml
-└── README.md
+---
